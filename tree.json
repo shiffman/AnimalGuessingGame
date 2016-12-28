@@ -1,0 +1,15 @@
+{
+  "data": "Are you a mammal?",
+  "yes": {
+    "data": "Do you have whiskers?",
+    "yes": {
+      "data": "cat"
+    },
+    "no": {
+      "data": "dog"
+    }
+  },
+  "no": {
+    "data": "eagle"
+  }
+}
