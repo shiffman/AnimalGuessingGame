@@ -3,13 +3,37 @@
   "yes": {
     "data": "Do you have whiskers?",
     "yes": {
-      "data": "cat"
+      "data": "Are you very small?",
+      "yes": {
+        "data": "mouse"
+      },
+      "no": {
+        "data": "cat"
+      }
     },
     "no": {
       "data": "dog"
     }
   },
   "no": {
-    "data": "eagle"
+    "data": "Do you live exclusively in water?",
+    "yes": {
+      "data": "fish"
+    },
+    "no": {
+      "data": "Do you have a very long neck?",
+      "yes": {
+        "data": "giraffe."
+      },
+      "no": {
+        "data": "Do you spend most of the day in water?",
+        "yes": {
+          "data": "hippo"
+        },
+        "no": {
+          "data": "eagle"
+        }
+      }
+    }
   }
 }
