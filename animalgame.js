@@ -4,6 +4,14 @@
 // Daniel Shiffman
 // http://codingrainbow.com/
 
+//ideas: 
+//show an image of the animal
+// play a sound of the animal
+// handheld swipe yes|no for input
+//
+//different json format? 
+
+
 // Node has data and a yes (left) and no (right) answer
 function Node(data, y, n) {
   this.data = data;
@@ -13,13 +21,20 @@ function Node(data, y, n) {
 
 var readlineSync = require('readline-sync');
 var fs = require("fs");
+//add some encouragement//
+var words = ["That's great!", "You know your animals!", "Let's play again!", "One more animal!"];
+var word = words[Math.floor(Math.random() * words.length)];
+
+/// add thanks to the learner for contributing
+var thanks = ["Thanks!", "You are awesome smart!", "You are making this game so much fun! What other animals do you know?", "Let's play again! I want to know more animals!"];
+var thank = thanks[Math.floor(Math.random() * words.length)];
 
 // Read in an animal decision tree
 var tree = fs.readFileSync('tree.json');
 var root = JSON.parse(tree);
 var node;
 
-console.log('Welcome to the animal game!');
+console.log('Welcome to the animal game!\nThis game is a lot of fun!\nThink of an animal,\nthen I will try to guess it!\nIf I do not know know your animal you can teach me!\nReady to play?!');
 
 // Play the game
 while (ask("Do you want to play?")) {
@@ -43,7 +58,7 @@ function go() {
     train(node);
   } else {
     // Right!
-    console.log("Yay!");
+    console.log(word);
   }
 }
 
@@ -66,9 +81,13 @@ function train(node) {
   if (ask("Answer for a " + answer + ": " + question)) {
     node.yes = new Node(answer);
     node.no = new Node(guess);
+    //add a not of thanks for the contribution
+    console.log(thank);
   } else {
     node.yes = new Node(guess);
     node.no = new Node(answer);
+    //adding it here did not gen a thanks
+    //console.log(thank);
   }
   // Save back to the file
   var tree = JSON.stringify(root, null, 2);
