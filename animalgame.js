@@ -13,13 +13,18 @@ function Node(data, y, n) {
 
 var readlineSync = require('readline-sync');
 var fs = require("fs");
+//add some encouragement//
+var words = ["That's great!", "You know your animals!", "Let's play again!", "One more animal!"];
+var word = words[Math.floor(Math.random() * words.length)];
+
+
 
 // Read in an animal decision tree
 var tree = fs.readFileSync('tree.json');
 var root = JSON.parse(tree);
 var node;
 
-console.log('Welcome to the animal game!');
+console.log('Welcome to the animal game!\nThis game is a lot of fun!\nThink of an animal,\nthen I will try to guess it!\nIf I do not know know your animal you can teach me!\nReady to play?!');
 
 // Play the game
 while (ask("Do you want to play?")) {
@@ -43,7 +48,7 @@ function go() {
     train(node);
   } else {
     // Right!
-    console.log("Yay!");
+    console.log(word);
   }
 }
 
