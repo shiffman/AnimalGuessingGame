@@ -4,13 +4,7 @@
 // Daniel Shiffman
 // http://codingrainbow.com/
 
-//ideas: 
-//show an image of the animal
-// play a sound of the animal
-// handheld swipe yes|no for input
-//
-//different json format? 
-
+//don't forget about the ;!
 
 // Node has data and a yes (left) and no (right) answer
 function Node(data, y, n) {
@@ -25,9 +19,13 @@ var fs = require("fs");
 var words = ["That's great!", "You know your animals!", "Let's play again!", "One more animal!"];
 var word = words[Math.floor(Math.random() * words.length)];
 
-/// add thanks to the learner for contributing
-var thanks = ["Thanks!", "You are awesome smart!", "You are making this game so much fun! What other animals do you know?", "Let's play again! I want to know more animals!"];
+//giving thanks
+var thanks = ["Thanks!", "You are awesome smart!"];
 var thank = thanks[Math.floor(Math.random() * words.length)];
+
+//play again
+var playAgain = ["Let's play again!", "That was fun, let's play again!"]
+var playAgainLoad = playAgain[Math.floor(Math.random() * words.length)];
 
 // Read in an animal decision tree
 var tree = fs.readFileSync('tree.json');
@@ -81,8 +79,9 @@ function train(node) {
   if (ask("Answer for a " + answer + ": " + question)) {
     node.yes = new Node(answer);
     node.no = new Node(guess);
-    //add a not of thanks for the contribution
     console.log(thank);
+    console.log ("Great! Now I know about " + answer + "s !");
+    console.log(playAgainLoad);
   } else {
     node.yes = new Node(guess);
     node.no = new Node(answer);
