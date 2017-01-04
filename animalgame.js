@@ -15,15 +15,15 @@ function Node(data, y, n) {
 
 var readlineSync = require('readline-sync');
 var fs = require("fs");
-//add some encouragement//
+// Add some encouragement
 var words = ["That's great!", "You know your animals!", "Let's play again!", "One more animal!"];
 var word = words[Math.floor(Math.random() * words.length)];
 
-//giving thanks
-var thanks = ["Thanks!", "You are awesome smart!"];
+// Giving thanks
+var thanks = ["Thanks!", "Nice one!"];
 var thank = thanks[Math.floor(Math.random() * words.length)];
 
-//play again
+// Play again
 var playAgain = ["Let's play again!", "That was fun, let's play again!"]
 var playAgainLoad = playAgain[Math.floor(Math.random() * words.length)];
 
