@@ -32,7 +32,7 @@
           "no": {
             "data": "Do people sometimes ride on your back?",
             "yes": {
-              "data": "horse"
+              "data": "horse 🐴🐴🐴"
             },
             "no": {
               "data": "house cat  🐈🐈🐈"
@@ -60,13 +60,13 @@
             "data": "koala  🐨🐨🐨"
           },
           "no": {
-            "data": "monkey"
+            "data": "monkey 🐒🐒🐒"
           }
         },
         "no": {
           "data": "Do you have really big antlers?",
           "yes": {
-            "data": "moose"
+            "data": "moose "
           },
           "no": {
             "data": "Are kind of grey skinned?",
@@ -107,7 +107,7 @@
     "no": {
       "data": "Do you have a very long neck?",
       "yes": {
-        "data": "giraffe."
+        "data": "giraffe"
       },
       "no": {
         "data": "Do you spend most of the day in water �🌊🌊�🌊🌊?",
@@ -128,10 +128,10 @@
           "no": {
             "data": "Do you typically live in colonies?",
             "yes": {
-              "data": "ant"
+              "data": "ant 🐜🐜"
             },
             "no": {
-              "data": "eagle"
+              "data": "eagle 🦅🦅🦅🦅"
             }
           }
         }
