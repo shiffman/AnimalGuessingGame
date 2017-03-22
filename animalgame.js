@@ -8,18 +8,16 @@
 
 var readlineSync = require('readline-sync');
 var tree = require('./tree');
+var util = require('./util');
 
 // Add some encouragement
 var words = ["That's great!", "You know your animals!", "Let's play again!", "One more animal!"];
-var word = words[Math.floor(Math.random() * words.length)];
 
 // Giving thanks
 var thanks = ["Thanks!", "Nice one!"];
-var thank = thanks[Math.floor(Math.random() * words.length)];
 
 // Play again
-var playAgain = ["Let's play again!", "That was fun, let's play again!"]
-var playAgainLoad = playAgain[Math.floor(Math.random() * words.length)];
+var playAgain = ["Let's play again!", "That was fun, let's play again!"];
 
 tree.loadFile('tree.json', function (err, root) {
   if (err) return console.error(err);
@@ -52,7 +50,7 @@ tree.loadFile('tree.json', function (err, root) {
     // We're at the end, guess!
     else if (ask("Is it a " + node.message + "?")) {
       // Right!
-      console.log(word);
+      console.log(util.randomPicker(words));
       play();
     } else {
       // Wrong!
@@ -81,14 +79,14 @@ tree.loadFile('tree.json', function (err, root) {
       if (ask("Answer for a " + answer + ": " + question)) {
         node.yes = tree.node(answer);
         node.no = tree.node(guess);
-        console.log(thank);
+        console.log(util.randomPicker(thanks));
         console.log ("Great! Now I know about " + answer + "s !");
-        console.log(playAgainLoad);
+        console.log(util.randomPicker(playAgain));
       } else {
         node.yes = tree.node(guess);
         node.no = tree.node(answer);
         //adding it here did not gen a thanks
-        //console.log(thank);
+        //console.log(util.randomPicker(thanks));
       }
 
       // Save back to the file
