@@ -1,85 +1,85 @@
 {
-  "data": "Are you a mammal?",
+  "message": "Are you a mammal?",
   "yes": {
-    "data": "Do you have whiskers?",
+    "message": "Do you have whiskers?",
     "yes": {
-      "data": "Are you very small?",
+      "message": "Are you very small?",
       "yes": {
-        "data": "Do you have a long tail?",
+        "message": "Do you have a long tail?",
         "yes": {
-          "data": "mouse 🐭🐭🐭"
+          "message": "mouse 🐭🐭🐭"
         },
         "no": {
-          "data": "hamster 🐹🐹🐹"
+          "message": "hamster 🐹🐹🐹"
         }
       },
       "no": {
-        "data": "Are you a big cat?",
+        "message": "Are you a big cat?",
         "yes": {
-          "data": "Do you have orange and black stripes?",
+          "message": "Do you have orange and black stripes?",
           "yes": {
-            "data": "tiger 🐯🐯🐯"
+            "message": "tiger 🐯🐯🐯"
           },
           "no": {
-            "data": "lion 🦁🦁🦁"
+            "message": "lion 🦁🦁🦁"
           }
         },
         "no": {
-          "data": "Do you have a long mostly hairless tail?",
+          "message": "Do you have a long mostly hairless tail?",
           "yes": {
-            "data": "rat 🐀🐀🐀"
+            "message": "rat 🐀🐀🐀"
           },
           "no": {
-            "data": "Do people sometimes ride on your back?",
+            "message": "Do people sometimes ride on your back?",
             "yes": {
-              "data": "horse 🐴🐴🐴"
+              "message": "horse 🐴🐴🐴"
             },
             "no": {
-              "data": "house cat  🐈🐈🐈"
+              "message": "house cat  🐈🐈🐈"
             }
           }
         }
       }
     },
     "no": {
-      "data": "Do you live in water �🌊🌊�🌊🌊?",
+      "message": "Do you live in water �🌊🌊�🌊🌊?",
       "yes": {
-        "data": "Do you have baleen in your mouth?",
+        "message": "Do you have baleen in your mouth?",
         "yes": {
-          "data": "whale 🐋🐋🐋🐋"
+          "message": "whale 🐋🐋🐋🐋"
         },
         "no": {
-          "data": "dolphin 🐬🐬🐬"
+          "message": "dolphin 🐬🐬🐬"
         }
       },
       "no": {
-        "data": "Do you live in 🌲🌲🌲🌲   trees?",
+        "message": "Do you live in 🌲🌲🌲🌲   trees?",
         "yes": {
-          "data": "Do you keep your babies in a pouch?",
+          "message": "Do you keep your babies in a pouch?",
           "yes": {
-            "data": "koala  🐨🐨🐨"
+            "message": "koala  🐨🐨🐨"
           },
           "no": {
-            "data": "monkey 🐒🐒🐒"
+            "message": "monkey 🐒🐒🐒"
           }
         },
         "no": {
-          "data": "Do you have really big antlers?",
+          "message": "Do you have really big antlers?",
           "yes": {
-            "data": "moose "
+            "message": "moose "
           },
           "no": {
-            "data": "Are kind of grey skinned?",
+            "message": "Are kind of grey skinned?",
             "yes": {
-              "data": "elephant 🐘🐘🐘🐘"
+              "message": "elephant 🐘🐘🐘🐘"
             },
             "no": {
-              "data": "Do you have hard scales on your body?",
+              "message": "Do you have hard scales on your body?",
               "yes": {
-                "data": "pangolin"
+                "message": "pangolin"
               },
               "no": {
-                "data": "dog 🐶🐶🐶"
+                "message": "dog 🐶🐶🐶"
               }
             }
           }
@@ -88,50 +88,50 @@
     }
   },
   "no": {
-    "data": "Do you live exclusively in water 🌊🌊🌊?",
+    "message": "Do you live exclusively in water 🌊🌊🌊?",
     "yes": {
-      "data": "Do you have live primarily on the sea floor?",
+      "message": "Do you have live primarily on the sea floor?",
       "yes": {
-        "data": "Do you have spines on the outside of your body?",
+        "message": "Do you have spines on the outside of your body?",
         "yes": {
-          "data": "sea urchin"
+          "message": "sea urchin"
         },
         "no": {
-          "data": "octopus 🐙🐙🐙"
+          "message": "octopus 🐙🐙🐙"
         }
       },
       "no": {
-        "data": "fish 🐟🐟🐟"
+        "message": "fish 🐟🐟🐟"
       }
     },
     "no": {
-      "data": "Do you have a very long neck?",
+      "message": "Do you have a very long neck?",
       "yes": {
-        "data": "giraffe"
+        "message": "giraffe"
       },
       "no": {
-        "data": "Do you spend most of the day in water �🌊🌊�🌊🌊?",
+        "message": "Do you spend most of the day in water �🌊🌊�🌊🌊?",
         "yes": {
-          "data": "Do you have wings but can't fly?",
+          "message": "Do you have wings but can't fly?",
           "yes": {
-            "data": "penguin 🐧🐧🐧"
+            "message": "penguin 🐧🐧🐧"
           },
           "no": {
-            "data": "hippo"
+            "message": "hippo"
           }
         },
         "no": {
-          "data": "Are you commonly found in cities 🏙🏙?",
+          "message": "Are you commonly found in cities 🏙🏙?",
           "yes": {
-            "data": "pigeon"
+            "message": "pigeon"
           },
           "no": {
-            "data": "Do you typically live in colonies?",
+            "message": "Do you typically live in colonies?",
             "yes": {
-              "data": "ant 🐜🐜"
+              "message": "ant 🐜🐜"
             },
             "no": {
-              "data": "eagle 🦅🦅🦅🦅"
+              "message": "eagle 🦅🦅🦅🦅"
             }
           }
         }
