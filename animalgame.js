@@ -6,89 +6,97 @@
 
 //don't forget about the ;!
 
-// Node has data and a yes (left) and no (right) answer
-function Node(data, y, n) {
-  this.data = data;
-  this.yes = y;
-  this.no = n;
-}
-
 var readlineSync = require('readline-sync');
-var fs = require("fs");
+var tree = require('./tree');
+var util = require('./util');
+
 // Add some encouragement
 var words = ["That's great!", "You know your animals!", "Let's play again!", "One more animal!"];
-var word = words[Math.floor(Math.random() * words.length)];
 
 // Giving thanks
 var thanks = ["Thanks!", "Nice one!"];
-var thank = thanks[Math.floor(Math.random() * words.length)];
 
 // Play again
-var playAgain = ["Let's play again!", "That was fun, let's play again!"]
-var playAgainLoad = playAgain[Math.floor(Math.random() * words.length)];
+var playAgain = ["Let's play again!", "That was fun, let's play again!"];
 
-// Read in an animal decision tree
-var tree = fs.readFileSync('tree.json');
-var root = JSON.parse(tree);
-var node;
+tree.loadFile('tree.json', function (err, root) {
+  if (err) return console.error(err);
 
-console.log('Welcome to the animal game!\nThis game is a lot of fun!\nThink of an animal,\nthen I will try to guess it!\nIf I do not know know your animal you can teach me!\nReady to play?!');
+  console.log('Welcome to the animal game!');
+  console.log('This game is a lot of fun!');
+  console.log('Think of an animal,');
+  console.log('\tthen I will try to guess it!');
+  console.log('If I do not know know your animal you can teach me!\n');
 
-// Play the game
-while (ask("Do you want to play?")) {
-  node = root;
-  go();
-}
+  // Play the game
+  play();
 
-function go() {
-  // If it's not a "terminal" node (i.e. animal)
-  while (node.yes && node.no) {
-    // Ask the question: Yes or No?
-    if (ask(node.data)) {
-      node = node.yes;
-    } else {
-      node = node.no;
+  function play() {
+    if (ask("Do you want to play?")) {
+      go(root);
     }
   }
-  // We're at the end, guess!
-  if (!ask("Is it a " + node.data + "?")) {
-    // Wrong!
-    train(node);
-  } else {
-    // Right!
-    console.log(word);
-  }
-}
 
-// Ask a question, return true for yes
-function ask(question) {
-  var answer = readlineSync.question(question + " (y/n): ").toUpperCase();
-  return (answer.charAt(0) == "Y");
-}
-
-// Train a node to get the right answer
-function train(node) {
-  // The wrong guess
-  var guess = node.data;
-  // What is it?
-  var answer = readlineSync.question("Ok, what are you? ");
-  // Get a new question?
-  var question = readlineSync.question("Suggest a yes/no question to distinguish a " + guess + " from a " + answer + ".\n");
-  node.data = question;
-  // Yes or no for that question
-  if (ask("Answer for a " + answer + ": " + question)) {
-    node.yes = new Node(answer);
-    node.no = new Node(guess);
-    console.log(thank);
-    console.log ("Great! Now I know about " + answer + "s !");
-    console.log(playAgainLoad);
-  } else {
-    node.yes = new Node(guess);
-    node.no = new Node(answer);
-    //adding it here did not gen a thanks
-    //console.log(thank);
+  function go(node) {
+    // If it's not a "terminal" node (i.e. animal)
+    if (node.yes && node.no) {
+      // Ask the question: Yes or No?
+      if (ask(node.message)) {
+        go(node.yes);
+      } else {
+        go(node.no);
+      }
+    }
+    // We're at the end, guess!
+    else if (ask("Is it a " + node.message + "?")) {
+      // Right!
+      console.log(util.randomPicker(words));
+      play();
+    } else {
+      // Wrong!
+      train(node);
+    }
   }
-  // Save back to the file
-  var tree = JSON.stringify(root, null, 2);
-  fs.writeFileSync('tree.json', tree);
-}
+
+  // Ask a question, return true for yes
+  function ask(question) {
+    var answer = readlineSync.question(question + " (Y/n): ").toUpperCase();
+    return (answer.charAt(0) != "N");
+  }
+
+  // Train a node to get the right answer
+  function train(node) {
+    if (ask('No?! I\'m very curious! Can you tell me what you are?')) {
+      // The wrong guess
+      var guess = node.message;
+      // What is it?
+      var answer = readlineSync.question("Ok, what are you? ");
+      // Get a new question?
+      var question = readlineSync.question("Suggest a yes/no question to distinguish a " + guess + " from a " + answer + ".\n");
+      
+      node.message = question;
+      // Yes or no for that question
+      if (ask("Answer for a " + answer + ": " + question)) {
+        node.yes = tree.node(answer);
+        node.no = tree.node(guess);
+        console.log(util.randomPicker(thanks));
+        console.log ("Great! Now I know about " + answer + "s !");
+        console.log(util.randomPicker(playAgain));
+      } else {
+        node.yes = tree.node(guess);
+        node.no = tree.node(answer);
+        //adding it here did not gen a thanks
+        //console.log(util.randomPicker(thanks));
+      }
+
+      // Save back to the file
+      tree.writeFile('tree.json', root, function (err) {
+        if (err) console.warn(err);
+        play();
+      });
+    }
+    else {
+      play();
+    }  
+  }
+});
